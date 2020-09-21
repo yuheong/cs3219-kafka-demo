@@ -7,7 +7,7 @@ Firstly, spin up the container with Zookeeper and three Kafka brokers with the c
 The kafka-demo container should be running successfully, with zookeeper, kafka1, kafka2 and kafka3 containers running inside.
 
 
-## Testing of Pub-Sub (Producer-Consumer) and fault tolerance
+## Testing of Pub-Sub (Producer-Consumer)
 
 With the kafka-demo container running, open two terminal windows and enter any two of the running kafka containers,
 
@@ -36,6 +36,8 @@ Now, back in the first terminal with kafka1, start a producer to send publish me
 ```./kafka-console-producer.sh --broker-list localhost:9091 --topic client```
 
 Once messages are typed and sent in the producer, the consumer should instantly log the messages to the output, demonstrating that the pub/sub messaging is successful.
+
+## Testing of fault tolerance of cluster
 
 To test fault tolerance, we can shut down a kafka broker container and start the consumer on the remaining brokers to verify that the topic is being replicated and is fault-tolerant.
 
